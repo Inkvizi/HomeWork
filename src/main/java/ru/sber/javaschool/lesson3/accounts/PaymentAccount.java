@@ -1,9 +1,15 @@
 package ru.sber.javaschool.lesson3.accounts;
 
+import ru.sber.javaschool.lesson3.accounts.bik.BIK;
+
 public class PaymentAccount extends RuAccount {
     private boolean isBlocked;
     private double overDraft;
     private double currentOverDraft;
+
+    PaymentAccount(BIK bik) {
+        super(bik);
+    }
 
     public void block() {
         this.isBlocked = true;
