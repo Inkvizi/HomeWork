@@ -3,13 +3,17 @@ package ru.sber.javaschool.lesson3.accounts;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
+import org.mockito.Mockito;
+import ru.sber.javaschool.lesson3.accounts.bik.BIK;
 
 public class PaymentAccountTest {
     private PaymentAccount account;
 
     @Before
     public void setUp() {
-        account = new PaymentAccount();
+        BIK bik = Mockito.mock(BIK.class);
+        Mockito.when(bik.check()).thenReturn(true);
+        account = new PaymentAccount(bik);
     }
 
     @Test
